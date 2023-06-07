@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+  <title>Publisher Report</title>
+  <style>
+    .top-logo {
+        display: inline-block;
+        margin-left: 5%;
+        margin-right: 0%;
+        width:80%;
+    }
+    img {
+        height: 2%;
+        width: 10%;
+    }
+    .content {
+      margin-left: 2%;
+      margin-right: 0%;
+      text-align: left;
+    }
+    .report-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .report-table td {
+      border: none;
+      padding: 5px;
+      word-wrap: break-all;
+    }
+    .report-table tr:first-child {
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+    }
+    .general-details {
+      display: inline-block;
+      margin-left: 1%;
+      width: 42%;
+      text-align: left;
+    }
+    .additional-details {
+      display: inline-block;
+      width: 58%;
+      text-align: left;
+    }
+    .details-container {
+      white-space: nowrap;
+    }
+    .bold-text {
+      font-weight: bold;
+    }
+    .foot {
+      position: fixed;
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      padding: 5%;
+    }
+  </style>
+</head>
+
+<body>
+
+  {{range .Pages}}
+  <div class="top-logo">
+    <img src="https://www.computerhope.com/cdn/media/logo-200-gray.png" alt="Logo 1" style="float :left">
+    <img src="https://www.computerhope.com/cdn/media/logo-200-gray.png" alt="Logo 2" style="float: right;">
+  </div>
+  <div class="content">
+        <h2 style="text-align:center">PROOF OF PERFORMANCE REPORT</h2>
+        <div class="details-container">
+            <div class="general-details" >
+                <table >
+                    <tr>
+                        <td class="bold-text">Network Name:</td>
+                        <td style="word-wrap: break-all;">{{.Network_name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="bold-text">Total Players:</td>
+                      <td style="word-wrap: break-all;">{{.Total_players}}</td>
+                  </tr>
+                  <tr>
+                      <td class="bold-text">Total Duration:</td>
+                      <td style="word-wrap: break-all;">{{.Total_duration}}</td>
+                  </tr>
+                  <tr>
+                      <td class="bold-text">Total Impression:</td>
+                      <td style="word-wrap: break-all;">{{.Total_impression}}</td>
+                  </tr>
+                    
+                </table>
+            </div>
+        
+            <div  class="additional-details">
+                <table >
+                  <tr>
+                    <td class="bold-text">Generated On: </td>
+                    <td style="word-wrap: break-all;">{{.Generated_on}}</td>
+                </tr>
+                <tr>
+                    <td class="bold-text">Date Range:</td>
+                    <td style="word-wrap: break-all;">{{.Date_range}}</td>
+                </tr>
+                <tr>
+                    <td class="bold-text">Type:</td>
+                    <td style="word-wrap: break-all;">{{.Report_type}}</td>
+                </tr>
+                    <tr>
+                      <td class="bold-text">Media Items: </td>
+                      <td style="word-wrap: break-all;">{{.Media_items}}</td>
+                  </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+        <table class="report-table">
+            <colgroup>
+              <col style="width: 48%;">
+              <col style="width: 36%">
+              <col style="width: 8%">
+              <col style="width: 8%;">
+            </colgroup>
+            <tr style="padding: 3%;">
+              <th style="padding: 1%;">Player</th>
+              <th style="padding: 1%;">Channel</th>
+              <th style="padding: 1%;">Playout</th>
+              <th style="padding: 1%;">Duration</th>
+          </tr>
+                {{range .Table_data}}
+                <tr>
+                    <td>{{.Player}}</td>
+                    <td>{{.Channel}}</td>
+                    <td>{{.Playout}}</td>
+                    <td>{{.Duration}}</td>
+                </tr>
+                {{end}}
+                <br>
+                
+        </table>
+        <br><br><br><br><br><br><br><br><br><br>
+        <div class="foot">
+        <h2>Footer</h2>
+        </div>
+  </div>
+  
+  {{end}}
+
+</body>
+</html>

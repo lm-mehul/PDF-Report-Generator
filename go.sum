@@ -1,0 +1,7 @@
+github.com/SebastiaanKlippert/go-wkhtmltopdf v1.6.0/go.mod h1:zRBvVJtIfhaWvQ9lPIkXrtona4qqSmjZ1HfKvq4dQzI=
+github.com/SebastiaanKlippert/go-wkhtmltopdf v1.9.0 h1:DNrExYwvyyI404SxdUCCANAj9TwnGjRfa3cYFMNY1AU=
+github.com/SebastiaanKlippert/go-wkhtmltopdf v1.9.0/go.mod h1:SQq4xfIdvf6WYKSDxAJc+xOJdolt+/bc1jnQKMtPMvQ=
+github.com/c-seeger/Golang-HTML-TO-PDF-Converter v0.0.0-20201126122206-bf4ddaefb6d3 h1:eHIbisCGL0NYbVWTv4MsnlM9WkjsoEBWgddrVGzld4s=
+github.com/c-seeger/Golang-HTML-TO-PDF-Converter v0.0.0-20201126122206-bf4ddaefb6d3/go.mod h1:KdcFUcaGJzgl4SSx9OgoHy/ZKXfjA+v0erGthpgKrr8=
+github.com/go-sql-driver/mysql v1.7.1 h1:lUIinVbN1DY0xBg0eMOzmmtGoHwWBbvnWubQUrtU8EI=
+github.com/go-sql-driver/mysql v1.7.1/go.mod h1:OXbVy3sEdcQ2Doequ6Z5BW6fXNQTmx+9S1MCJN5yJMI=
