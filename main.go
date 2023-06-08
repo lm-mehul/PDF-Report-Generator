@@ -22,15 +22,17 @@ type Data struct {
 }
 
 type Page struct {
-	Network_name     string
-	Generated_on     string
-	Date_range       string
-	Report_type      string
-	Total_players    string
-	Media_items      string
-	Total_duration   string
-	Total_impression string
-	Table_data       []Data
+	Network_name      string
+	Generated_on      string
+	Date_range        string
+	Report_type       string
+	Total_players     string
+	Media_items       string
+	Total_duration    string
+	Total_impression  string
+	Table_data        []Data
+	Current_page_no   int
+	Total_no_of_pages int
 }
 
 type Report struct {
@@ -68,10 +70,14 @@ func main() {
 		data = append(data, p)
 	}
 
-	no_of_rows := 30
+	no_of_rows := 20
 	array_size := len(data)
 
 	pages := int(array_size / no_of_rows)
+	total_pages := pages
+	if array_size%no_of_rows > 0 {
+		total_pages += 1
+	}
 
 	var pdf []Page
 	var p Page
@@ -82,15 +88,18 @@ func main() {
 			temp = append(temp, data[i*no_of_rows+j])
 		}
 		p = Page{
-			Network_name:     "Test",
-			Generated_on:     "33538957933",
-			Date_range:       "453535435-34535355345",
-			Report_type:      "jnjsnfsnfjksnknjknjdsjkvndskvndfkjvjndjvbkvsd",
-			Total_players:    "4323242",
-			Media_items:      "fefgmsgmksdmnvjknsvjkvnjkvnrjkvnrjkvnkvjnvnnkdjn",
-			Total_duration:   "23423424324",
-			Total_impression: "3242422344234242422243",
-			Table_data:       temp}
+			Network_name:      "Testjnjsnfsnfjksjfrgtvbdefr",
+			Generated_on:      "33538957933",
+			Date_range:        "453535435-3455345",
+			Report_type:       "jnjsnfsnfjksjvjndjvbrvgdtvtvbdefr",
+			Total_players:     "4323242",
+			Media_items:       "fefgmsgmkvjnvnnkdjn",
+			Total_duration:    "23423424324",
+			Total_impression:  "3242422344233",
+			Table_data:        temp,
+			Current_page_no:   i + 1,
+			Total_no_of_pages: total_pages,
+		}
 		pdf = append(pdf, p)
 	}
 	if array_size%no_of_rows > 0 {
@@ -99,15 +108,18 @@ func main() {
 			temp = append(temp, data[pages*no_of_rows+j])
 		}
 		p = Page{
-			Network_name:     "Test",
-			Generated_on:     "33538957933",
-			Date_range:       "453535435-34535355345",
-			Report_type:      "jnjsnfsnfjksnknjknjdsjkvndskvndfkjvjndjvbkvsd",
-			Total_players:    "4323242",
-			Media_items:      "fefgmsgmksdmnvjfefgmsgmksdmnvjknsvjkvnjkvnrjkvnrjkvnkvjnvnnkdjn",
-			Total_duration:   "23423424324",
-			Total_impression: "3242422344234242422243",
-			Table_data:       temp}
+			Network_name:      "Test",
+			Generated_on:      "33538957933",
+			Date_range:        "453535435-3455345",
+			Report_type:       "jnjsnfsnfjksnknbkvsd",
+			Total_players:     "4323242",
+			Media_items:       "fefgmsgmksdmjnvnnkdjn",
+			Total_duration:    "23423424324",
+			Total_impression:  "3242422344234242422243",
+			Table_data:        temp,
+			Current_page_no:   total_pages,
+			Total_no_of_pages: total_pages,
+		}
 
 		pdf = append(pdf, p)
 	}

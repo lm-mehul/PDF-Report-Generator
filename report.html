@@ -6,18 +6,19 @@
   <style>
     .top-logo {
         display: inline-block;
-        margin-left: 5%;
-        margin-right: 0%;
-        width:80%;
+        margin-left: 15mm;
+        margin-right: 15mm;
+        width:90%;
     }
     img {
-        height: 2%;
-        width: 10%;
+        height: 15mm;
+        width: 30mm;
     }
     .content {
-      margin-left: 2%;
-      margin-right: 0%;
+      margin-left: 5mm;
+      margin-right: 0mm;
       text-align: left;
+      height: 310mm;
     }
     .report-table {
       width: 100%;
@@ -26,7 +27,6 @@
     .report-table td {
       border: none;
       padding: 5px;
-      word-wrap: break-all;
     }
     .report-table tr:first-child {
       border-top: 1px solid black;
@@ -34,20 +34,26 @@
     }
     .general-details {
       display: inline-block;
-      margin-left: 1%;
-      width: 42%;
+      margin-left: 2.5mm;
+      width: 125mm;
       text-align: left;
     }
     .additional-details {
       display: inline-block;
-      width: 58%;
+      width: 125mm;
+      margin-right: 5mm;
       text-align: left;
+    }
+    .wordbreak {
+      word-break: break-all;
+      white-space: pre-line;
     }
     .details-container {
       white-space: nowrap;
     }
     .bold-text {
       font-weight: bold;
+      vertical-align: top;
     }
     .foot {
       position: fixed;
@@ -56,91 +62,98 @@
       font-size: 12px;
       padding: 5%;
     }
+    html{
+        height:297mm;
+        width:255mm;
+    }
   </style>
 </head>
 
 <body>
 
   {{range .Pages}}
-  <div class="top-logo">
-    <img src="https://www.computerhope.com/cdn/media/logo-200-gray.png" alt="Logo 1" style="float :left">
-    <img src="https://www.computerhope.com/cdn/media/logo-200-gray.png" alt="Logo 2" style="float: right;">
-  </div>
-  <div class="content">
-        <h2 style="text-align:center">PROOF OF PERFORMANCE REPORT</h2>
-        <div class="details-container">
-            <div class="general-details" >
-                <table >
-                    <tr>
-                        <td class="bold-text">Network Name:</td>
-                        <td style="word-wrap: break-all;">{{.Network_name}}</td>
+  <div style="height: 380mm;display: block;">
+      <div class="top-logo">
+        <img src="https://www.computerhope.com/cdn/media/logo-200-gray.png" alt="Logo 1" style="float :left">
+        <img src="https://www.computerhope.com/cdn/media/logo-200-gray.png" alt="Logo 2" style="float: right;">
+      </div>
+      <div class="content">
+            <h2 style="text-align:center;">PROOF OF PERFORMANCE REPORT </h2>
+
+            <div class="details-container">
+                <div class="general-details" >
+                    <table style="table-layout: fixed;">
+                        <tr>
+                            <td class="bold-text">Network Name:</td>
+                            <td class="wordbreak">{{.Network_name}}</td>
+                        </tr>
+                        <tr>
+                          <td class="bold-text">Total Players:</td>
+                          <td class="wordbreak">{{.Total_players}}</td>
+                      </tr>
+                      <tr>
+                          <td class="bold-text">Total Duration:</td>
+                          <td class="wordbreak">{{.Total_duration}}</td>
+                      </tr>
+                      <tr>
+                          <td class="bold-text">Total Impression:</td>
+                          <td class="wordbreak">{{.Total_impression}}</td>
+                      </tr>
+                        
+                    </table>
+                </div>
+            
+                <div  class="additional-details">
+                    <table style="table-layout: fixed;">
+                      <tr>
+                        <td class="bold-text">Generated On: </td>
+                        <td class="wordbreak">{{.Generated_on}}</td>
                     </tr>
                     <tr>
-                      <td class="bold-text">Total Players:</td>
-                      <td style="word-wrap: break-all;">{{.Total_players}}</td>
-                  </tr>
-                  <tr>
-                      <td class="bold-text">Total Duration:</td>
-                      <td style="word-wrap: break-all;">{{.Total_duration}}</td>
-                  </tr>
-                  <tr>
-                      <td class="bold-text">Total Impression:</td>
-                      <td style="word-wrap: break-all;">{{.Total_impression}}</td>
-                  </tr>
-                    
-                </table>
-            </div>
-        
-            <div  class="additional-details">
-                <table >
-                  <tr>
-                    <td class="bold-text">Generated On: </td>
-                    <td style="word-wrap: break-all;">{{.Generated_on}}</td>
-                </tr>
-                <tr>
-                    <td class="bold-text">Date Range:</td>
-                    <td style="word-wrap: break-all;">{{.Date_range}}</td>
-                </tr>
-                <tr>
-                    <td class="bold-text">Type:</td>
-                    <td style="word-wrap: break-all;">{{.Report_type}}</td>
-                </tr>
+                        <td class="bold-text">Date Range:</td>
+                        <td class="wordbreak">{{.Date_range}}</td>
+                    </tr>
                     <tr>
-                      <td class="bold-text">Media Items: </td>
-                      <td style="word-wrap: break-all;">{{.Media_items}}</td>
-                  </tr>
-                </table>
+                        <td class="bold-text">Type:</td>
+                        <td class="wordbreak">{{.Report_type}}</td>
+                    </tr>
+                        <tr>
+                          <td class="bold-text">Media Items: </td>
+                          <td class="wordbreak">{{.Media_items}}</td>
+                      </tr>
+                    </table>
+                </div>
             </div>
-        </div>
-        <br>
-        <table class="report-table">
-            <colgroup>
-              <col style="width: 48%;">
-              <col style="width: 36%">
-              <col style="width: 8%">
-              <col style="width: 8%;">
-            </colgroup>
-            <tr style="padding: 3%;">
-              <th style="padding: 1%;">Player</th>
-              <th style="padding: 1%;">Channel</th>
-              <th style="padding: 1%;">Playout</th>
-              <th style="padding: 1%;">Duration</th>
-          </tr>
-                {{range .Table_data}}
-                <tr>
-                    <td>{{.Player}}</td>
-                    <td>{{.Channel}}</td>
-                    <td>{{.Playout}}</td>
-                    <td>{{.Duration}}</td>
-                </tr>
-                {{end}}
-                <br>
-                
-        </table>
-        <br><br><br><br><br><br><br><br><br><br>
-        <div class="foot">
-        <h2>Footer</h2>
-        </div>
+            <br>
+            <table class="report-table" style="table-layout: fixed;">
+                <colgroup>
+                  <col style="width: 48%;">
+                  <col style="width: 36%">
+                  <col style="width: 8%">
+                  <col style="width: 8%;">
+                </colgroup>
+                <tr style="padding: 3%;">
+                  <th style="padding: 1%;">Player</th>
+                  <th style="padding: 1%;">Channel</th>
+                  <th style="padding: 1%;">Playout</th>
+                  <th style="padding: 1%;">Duration</th>
+              </tr>
+                    {{range .Table_data}}
+                    <tr>
+                        <td class="wordbreak">{{.Player}}</td>
+                        <td class="wordbreak">{{.Channel}}</td>
+                        <td class="wordbreak">{{.Playout}}</td>
+                        <td class="wordbreak">{{.Duration}}</td>
+                    </tr>
+                    {{end}}
+                    <br>
+                    
+            </table>
+      </div>     
+            <div class="foot">
+                <h2>{{.Current_page_no}} of {{.Total_no_of_pages}}</h2>
+            </div>
+      
   </div>
   
   {{end}}
